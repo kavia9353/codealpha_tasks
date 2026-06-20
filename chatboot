@@ -1,0 +1,32 @@
+def get_bot_response(user_input):
+    # Convert input to lowercase to make the chatbot case-insensitive
+    user_input = user_input.strip().lower()
+    
+    if "hello" in user_input or "hi" in user_input:
+        return "Hi!"
+    elif "how are you" in user_input:
+        return "I'm fine, thanks!"
+    elif "bye" in user_input:
+        return "Goodbye!"
+    else:
+        return "I'm sorry, I don't understand that. Try saying 'hello', 'how are you', or 'bye'."
+
+def start_chatbot():
+    print("Chatbot: Hello! I am a rule-based chatbot. Type 'bye' to exit.")
+    
+    # Infinite loop to keep the conversation going until 'bye' is triggered
+    while True:
+        user_input = input("You: ")
+        
+        # Get the response from our defined function
+        response = get_bot_response(user_input)
+        
+        print(f"Chatbot: {response}")
+        
+        # Break the loop if the user wants to say goodbye
+        if "bye" in user_input.lower():
+            break
+
+# Run the chatbot
+if __name__ == "__main__":
+    start_chatbot()
